@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Noto Sans", sans-serif;
+  background: #ccc;
+}
+.container {
+  position: relative;
+  width: 350px;
+  height: 600px;
+  background-color: #fff;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px;
+  background-color: rgb(9, 142, 82);
+  color: #fff;
+}
+header .logo {
+  font-size: 15px;
+  font-weight: 500;
+}
+header .icons {
+  display: flex;
+  gap: 30px;
+  text-decoration: none;
+  color: #fff;
+}
+header .icons a {
+  text-decoration: none;
+  color: #fff;
+}
+.tabs input {
+  visibility: hidden;
+  display: none;
+}
+.buttons {
+  position: relative;
+  display: flex;
+  background-color: rgb(9, 142, 82);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.buttons label {
+  width: 33.33%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 0;
+  opacity: 0.75;
+  cursor: pointer;
+}
+.tabs input:nth-child(1):checked ~ .buttons label:nth-child(1),
+.tabs input:nth-child(2):checked ~ .buttons label:nth-child(2),
+.tabs input:nth-child(3):checked ~ .buttons label:nth-child(3) {
+  opacity: 1;
+}
+.underline {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 33.333%;
+  height: 3px;
+  background: #fff;
+  transition: 0.4s;
+}
+.tabs input:nth-child(1):checked ~ .buttons .underline {
+  left: 0;
+}
+.tabs input:nth-child(2):checked ~ .buttons .underline {
+  left: 33.33%;
+}
+.tabs input:nth-child(3):checked ~ .buttons .underline {
+  left: 66.66%;
+}
+
+.content {
+  position: relative;
+  width: calc(350px * 3);
+  display: flex;
+}
+.content .box {
+  position: relative;
+  width: 350px;
+}
+
+.tabs input:nth-child(1):checked ~ .content {
+  left: calc(350px * 0);
+}
+.tabs input:nth-child(2):checked ~ .content {
+  left: calc(350px * -1);
+}
+.tabs input:nth-child(3):checked ~ .content {
+  left: calc(350px * -2);
+}
+
+.content .data {
+  position: relative;
+  width: 100%;
+  height: 510px;
+}
+.chatlist {
+  position: relative;
+  height: 100%;
+  overflow-y: auto;
+}
+.chatlist .block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.chatlist .block:hover {
+  background: #f5f5f5;
+}
+.chatlist .block .imgbox {
+  position: relative;
+  min-width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.chatlist .block .imgbox img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.chatlist .block .details {
+  position: relative;
+  width: 100%;
+}
+.chatlist .block .details .listHead {
+  display: flex;
+  justify-content: space-between;
+}
+.chatlist .block .details .listHead h4 {
+  font-size: 1em;
+  font-weight: 600;
+  width: 100%;
+  color: #111;
+}
+.chatlist .block .details .listHead .time {
+  font-size: 0.75em;
+  color: #555;
+}
+.message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chatlist .block .details .message p {
+  color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  font-size: 0.9em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+.chatlist .block .details .listHead .time {
+  color: #111;
+  font-weight: 500;
+  opacity: 0.5;
+}
+.chatlist .block.unread .details .listHead .time {
+  color: #06d755;
+}
+.chatlist .block.unread .details p {
+  color: #111;
+  font-weight: 600;
+  opacity: 0.9;
+}
+.message b {
+  color: #ffffff;
+  border-radius: 50%;
+  background-color: #06d755;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  height: 20px;
+  font-size: 0.75em;
+}
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+}
+
+.status .plus {
+  position: absolute;
+  top: 38px;
+  left: 40px;
+  width: 23px;
+  height: 24px;
+  background-color: #0aa545;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.box label {
+  padding: 0 15px;
+  color: #555;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+.unseen .imgbox {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #008069;
+}
+.seen .imgbox {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgb(165, 165, 165);
+}
+.green {
+  background: #008069;
+}
+.imgbox i {
+  position: absolute;
+  color: #fff;
+  font-size: 1.2rem;
+}
+.recent {
+  font-size: 0.9rem;
+  margin-left: 1rem;
+}
+.block .details .message p i {
+  margin-right: 10px;
+}
+.block .details .message p span {
+  color: red;
+}
+.block .details .message b i {
+  font-size: 0.6rem;
+}
